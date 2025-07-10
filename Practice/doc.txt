@@ -1,16 +1,22 @@
-use of midddleware
+use of midddleware example 1
 --------------------------------
-const express= require('express')
+const http= require('http')
+
+const express= require('express');
 
 const app=  express();
 
 app.use((req,res,next)=>{
    console.log('Middleware one');
-   next(); //allow the request to continue to the next request
+   next();
 })
 
 app.use((req,res,next)=>{
 console.log('Middleware two')
-res.end("Hello world")
+res.send(JSON.stringify({"name":"Bello Abdulazeez"}))
 });
+
+const server = http.createServer(app);
+
+ server.listen(2001);
 ---------------------------
