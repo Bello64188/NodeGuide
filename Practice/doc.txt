@@ -1,0 +1,16 @@
+use of midddleware
+--------------------------------
+const express= require('express')
+
+const app=  express();
+
+app.use((req,res,next)=>{
+   console.log('Middleware one');
+   next(); //allow the request to continue to the next request
+})
+
+app.use((req,res,next)=>{
+console.log('Middleware two')
+res.end("Hello world")
+});
+---------------------------
